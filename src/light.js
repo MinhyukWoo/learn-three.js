@@ -1,18 +1,25 @@
 import * as THREE from "three";
 
-export default function helloThreeJs() {
+export default function light() {
   const scene = new THREE.Scene();
-  const aspect = window.innerWidth / window.innerHeight;
-  const camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000);
 
-  const gemometry = new THREE.BoxGeometry(1, 1, 1);
+  const gemometry = new THREE.BoxGeometry(10, 10, 10);
   const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
   const cube = new THREE.Mesh(gemometry, material);
   scene.add(cube);
-  camera.position.z = 2;
+
+//   const light = new THREE.PointLight(0xffff00);
+//   light.position.set(5, 0, 15);
+//   scene.add(light);
+
+  const aspect = window.innerWidth / window.innerHeight;
+  const camera = new THREE.PerspectiveCamera(75, aspect, 1, 1000);
+  camera.position.z = 30;
 
   const renderer = new THREE.WebGLRenderer();
+  renderer.setClearColor(new THREE.Color(0xdddddd));
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
   document.body.appendChild(renderer.domElement);
 
   function animate() {
