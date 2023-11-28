@@ -15,7 +15,7 @@ function materials(canvasId) {
   board.position.set(0, -12, 0);
   scene.add(board);
 
-  const geometry = new THREE.SphereGeometry(10, 200, 200);
+  const geometry = new THREE.SphereGeometry(10, 10, 10);
   // const material = new THREE.MeshToonMaterial()
   const makeMaterial = () => {
     return new THREE.MeshPhysicalMaterial({
